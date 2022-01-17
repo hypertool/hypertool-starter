@@ -9,5 +9,8 @@
     },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown"
+    },
+    "dependencies": {
+        "@mui/material": "^5.2.8"
     }
 }
