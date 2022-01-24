@@ -1,6 +1,9 @@
 {
     "scripts": {
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "start": "hypertool start",
+        "deploy": "hypertool deploy",
+        "eject": "hypertool eject"
     },
     "devDependencies": {
         "@hypertool/cli": "^0.1.2",
@@ -8,14 +11,14 @@
         "lint-staged": "^12.1.7",
         "prettier": "^2.5.1"
     },
-    "lint-staged": {
-        "**/*": "prettier --write --ignore-unknown"
-    },
     "dependencies": {
         "@emotion/react": "^11.7.1",
         "@emotion/styled": "^11.6.0",
         "@mui/material": "^5.2.8",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
     }
 }
