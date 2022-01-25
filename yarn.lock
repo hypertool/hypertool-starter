@@ -1186,10 +1186,10 @@
     webpack "^5.65.0"
     webpack-dev-server "^4.6.0"
 
-"@hypertool/core@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@hypertool/core/-/core-0.1.0.tgz#5a87a4de14ee9a7ca677451a2bf1176a3fcfc3ee"
-  integrity sha512-3G41hZJdP971FvBE28tODNd8T6RLoyQdHR7PtVrDN50VDwqXZqjuNhMdrG4pZ712nRZpu1/iSvpYPfoYkAcEeA==
+"@hypertool/core@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@hypertool/core/-/core-0.3.0.tgz#7323c7415380ed2bef573339f7b0994cb672ac46"
+  integrity sha512-g6+MQ4cCXvKU2TrJj4QUMDKzSFYGviNGe8L5/cw7EVH9VjftvXRQL38yE18ecVdHiBZZGWsDRwy7pqJFP5tVVQ==
 
 "@kwsites/file-exists@^1.1.1":
   version "1.1.1"
