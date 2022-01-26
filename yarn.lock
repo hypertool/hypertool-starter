@@ -1187,10 +1187,10 @@
     webpack "^5.65.0"
     webpack-dev-server "^4.6.0"
 
-"@hypertool/core@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@hypertool/core/-/core-0.3.0.tgz#7323c7415380ed2bef573339f7b0994cb672ac46"
-  integrity sha512-g6+MQ4cCXvKU2TrJj4QUMDKzSFYGviNGe8L5/cw7EVH9VjftvXRQL38yE18ecVdHiBZZGWsDRwy7pqJFP5tVVQ==
+"@hypertool/core@^0.3.4":
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@hypertool/core/-/core-0.3.4.tgz#54770a7c06ec2e0033f265eca70e973b731ee1fd"
+  integrity sha512-wT/XPD4HdVUOciBTv+7GyYaU/aQgV0BoJX8MUtNv8CdXxpJqWp8HllbRmu77uykKkh17yc3frdGznlzDU+BLiQ==
 
 "@kwsites/file-exists@^1.1.1":
   version "1.1.1"

@@ -14,7 +14,7 @@
     "dependencies": {
         "@emotion/react": "^11.7.1",
         "@emotion/styled": "^11.6.0",
-        "@hypertool/core": "^0.3.0",
+        "@hypertool/core": "^0.3.4",
         "@mui/material": "^5.2.8",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
