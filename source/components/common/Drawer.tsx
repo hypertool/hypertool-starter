@@ -1,6 +1,7 @@
 import type { FunctionComponent, ReactElement } from "react";
 
 import React, { Fragment } from "react";
+import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import {
     IconButton,
@@ -41,9 +42,20 @@ export interface Props {
 
 const Drawer: FunctionComponent<Props> = (props: Props): ReactElement => {
     const { open, groups, handleClose } = props;
+    const navigate = useNavigate();
+
+    const handleNavigation = (item) => () => {
+        const { url } = item;
+        /* Open the URL in a different tab if the URL is absolute. */
+        if (url.startsWith("http://") || url.startsWith("https://")) {
+            window.open(item.url);
+        } else {
+            navigate(item.url);
+        }
+    };
 
     const renderItem = (item, index: number) => (
-        <ListItem key={index} button={true}>
+        <ListItem key={index} button={true} onClick={handleNavigation(item)}>
             {item.icon && (
                 <ListItemIcon>
                     <Icon>{item.icon}</Icon>
