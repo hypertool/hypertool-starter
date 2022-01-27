@@ -1,9 +1,11 @@
+import type { FunctionComponent, ReactElement } from "react";
+
 import React, { Fragment } from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import {
     IconButton,
     Divider,
-    Drawer,
+    Drawer as MuiDrawer,
     Icon,
     List,
     ListItem,
@@ -13,17 +15,32 @@ import {
 
 const drawerWidth = 240;
 
+const DecoratedDrawer = styled(MuiDrawer)(({ theme }) => ({
+    width: drawerWidth,
+    flexShrink: 0,
+    "& .MuiDrawer-paper": {
+        width: drawerWidth,
+        boxSizing: "border-box",
+    },
+}));
+
 const DrawerHeader = styled("div")(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
+    // Necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
 }));
 
-export default function PersistentDrawerLeft(props: any) {
-    const { open, groups, handleDrawerClose } = props;
+export interface Props {
+    open: boolean;
+    groups: any[];
+    handleClose: () => void;
+}
+
+const Drawer: FunctionComponent<Props> = (props: Props): ReactElement => {
+    const { open, groups, handleClose } = props;
 
     const renderItem = (item, index: number) => (
         <ListItem key={index} button={true}>
@@ -49,26 +66,16 @@ export default function PersistentDrawerLeft(props: any) {
     );
 
     return (
-        <Drawer
-            sx={{
-                width: drawerWidth,
-                flexShrink: 0,
-                "& .MuiDrawer-paper": {
-                    width: drawerWidth,
-                    boxSizing: "border-box",
-                },
-            }}
-            variant="persistent"
-            anchor="left"
-            open={open}
-        >
+        <DecoratedDrawer variant="persistent" anchor="left" open={open}>
             <DrawerHeader>
-                <IconButton onClick={handleDrawerClose}>
+                <IconButton onClick={handleClose}>
                     <Icon>chevron_left</Icon>
                 </IconButton>
             </DrawerHeader>
             <Divider />
             {groups.map(renderGroup)}
-        </Drawer>
+        </DecoratedDrawer>
     );
-}
+};
+
+export default Drawer;

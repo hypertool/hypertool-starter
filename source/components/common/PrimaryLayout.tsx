@@ -67,7 +67,7 @@ const PrimaryLayout: FunctionComponent<Props> = (
             </AppBar>
             <Drawer
                 open={open}
-                handleDrawerClose={handleDrawerClose}
+                handleClose={handleDrawerClose}
                 groups={configuration.layouts.primary.drawer}
             />
             <Main open={open}>{props.children}</Main>
