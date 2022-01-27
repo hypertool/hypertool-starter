@@ -9,7 +9,7 @@ import { PrimaryLayout } from "./components/common";
 
 const Application: FunctionComponent = (): ReactElement => {
     const resolver = useCallback(
-        (path: string) => import("." + path.substr(6)),
+        (path: string) => import("." + path.substring(6).replace(/\\/g, "/")),
         [],
     );
     return (
