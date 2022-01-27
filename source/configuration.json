@@ -1,0 +1,38 @@
+{
+    "layouts": {
+        "primary": {
+            "drawer": [
+                {
+                    "title": "Adminstrator",
+                    "items": [
+                        {
+                            "title": "Activity Logs",
+                            "url": "/activity-logs",
+                            "icon": "timeline"
+                        },
+                        {
+                            "title": "Team",
+                            "url": "/team",
+                            "icon": "people"
+                        }
+                    ]
+                },
+                {
+                    "title": "Help",
+                    "items": [
+                        {
+                            "title": "Submit Feedback",
+                            "url": "https://hypertool.io/feedback",
+                            "icon": "feedback"
+                        },
+                        {
+                            "title": "Contact Support",
+                            "url": "https://hypertool.io/support",
+                            "icon": "chat"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
