@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 import { Formik } from "formik";
 import * as yup from "yup";
 
-import { Button, Modal, TextField, CircularProgress } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 
 const Root = styled("div")(() => ({
     display: "flex",
@@ -56,20 +56,18 @@ const Login = () => {
                         {(formik) => (
                             <>
                                 <InputField
-                                    id="outlined-basic"
+                                    id="Email"
                                     label="Email"
                                     variant="outlined"
-                                    name="clientId"
-                                    value={formik.values.email}
+                                    name="email"
                                     onChange={formik.handleChange}
                                     size="small"
                                 />
                                 <InputField
-                                    id="secret"
+                                    id="Password"
                                     label="Password"
                                     variant="outlined"
-                                    name="secret"
-                                    value={formik.values.password}
+                                    name="password"
                                     onChange={formik.handleChange}
                                     size="small"
                                 />
