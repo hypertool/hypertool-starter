@@ -1,6 +1,10 @@
+import { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { styled } from "@mui/material/styles";
 import { Formik } from "formik";
 import * as yup from "yup";
+import { PublicClient } from "@hypertool/common";
+import { useGoogleLogin } from "react-google-login";
 
 import { Button, TextField } from "@mui/material";
 
@@ -42,7 +46,42 @@ const validationSchema = yup.object({
 });
 
 const Login = () => {
-    const handleSubmit = (values: FormValues) => {};
+    const navigate = useNavigate();
+    const [clientId, setClientId] = useState("");
+    // const appName = window.hypertool.appName;
+    //Temporary
+    const appName = "manage-users";
+    const publicClient = new PublicClient(appName);
+
+    useEffect(() => {
+        const getAuthInfoData = async () => {
+            const authInfo = await publicClient.getAuthInfo();
+            setClientId(authInfo[0].payload.clientId);
+        };
+        getAuthInfoData();
+    }, []);
+
+    const handleBasicAuthSubmit = (values: FormValues) => {};
+
+    const onSuccess = useCallback(async (response: any) => {
+        const result = await publicClient.loginWithGoogle(response.code, "web");
+        localStorage.setItem("session", JSON.stringify(result.jwtToken));
+    }, []);
+
+    const onFailure = (event: any) => {};
+
+    const { signIn } = useGoogleLogin({
+        onSuccess,
+        onFailure,
+        clientId,
+        cookiePolicy: "single_host_origin",
+        responseType: "code",
+    });
+
+    const handleGoogleSubmit = useCallback(() => {
+        signIn();
+    }, [signIn]);
+
     return (
         <>
             <Root>
@@ -50,7 +89,7 @@ const Login = () => {
                 <FormContainer>
                     <Formik
                         initialValues={initialValues}
-                        onSubmit={handleSubmit}
+                        onSubmit={handleBasicAuthSubmit}
                         validationSchema={validationSchema}
                     >
                         {(formik) => (
@@ -81,7 +120,10 @@ const Login = () => {
                             </>
                         )}
                     </Formik>
-                    <PrimaryAction variant="outlined">
+                    <PrimaryAction
+                        variant="outlined"
+                        onClick={handleGoogleSubmit}
+                    >
                         Continue with Google
                     </PrimaryAction>
                 </FormContainer>
